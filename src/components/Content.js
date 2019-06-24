@@ -33,7 +33,7 @@ export class Content extends React.Component {
   }
 
   fetchService = async() => {
-    const fetchUrl = `https://picsum.photos/v2/list?page=${page}&limit=${this.limit}`
+    const fetchUrl = `https://picsum.photos/v2/list?page=${this.page}&limit=${this.limit}`
     const pictures = await fetch(fetchUrl)
     const responseTxt = await pictures.text()
     const picturesArr = await JSON.parse(responseTxt)
@@ -60,11 +60,13 @@ export class Content extends React.Component {
     const documentScrollTop = document.documentElement.scrollTop
     const documentClientHeight = document.documentElement.clientHeight
     const documentScrollHeight =  document.documentElement.scrollHeight
-    if(documentScrollTop + documentClientHeight >= documentScrollHeight){
+    // console.log(documentScrollTop + ' ' + documentClientHeight + ' ' + documentScrollHeight)
+    if(documentScrollTop + documentClientHeight +1 >= documentScrollHeight){
       this.setState({
         loadMore: true
       })
-      this.page++
+      // this.page++
+      // console.log('page: ', this.page)
       this.fetchService(this.page++)
     }
   }
