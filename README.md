@@ -11,5 +11,6 @@
 
 ## Used
 - ReactJs
+- Redux
 - Webpack
 - React Bootstrap
