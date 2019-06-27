@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'babel-polyfill'
 import { Container, Row, Col, Card, Spinner } from 'react-bootstrap'
+import { fetchData } from '../service/fetchService'
 
 /**
  * 通过滚动条实现图片无限加载 （pictures are provided by Unsplash）
@@ -33,10 +34,7 @@ export class Content extends React.Component {
   }
 
   fetchService = async() => {
-    const fetchUrl = `https://picsum.photos/v2/list?page=${this.page}&limit=${this.limit}`
-    const pictures = await fetch(fetchUrl)
-    const responseTxt = await pictures.text()
-    const picturesArr = await JSON.parse(responseTxt)
+    const picturesArr = await fetchData(this.page, this.limit)
     picturesArr.map((item, index) => {
       let id = item.id
       let imgUrl = `https://picsum.photos/id/${id}/600/500`; //字符串拼接
