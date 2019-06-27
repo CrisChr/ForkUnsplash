@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from './src/components/Header'
-import { Content } from './src/components/Content'
+import ContentCotainer  from './src/containers/ContentContainer'
 
 
 export class App extends React.Component {
@@ -12,7 +12,7 @@ export class App extends React.Component {
     return (
       <div>
         <Header/>
-        <Content/>
+        <ContentCotainer/>
       </div>
     )
   }

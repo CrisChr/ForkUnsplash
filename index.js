@@ -15,9 +15,9 @@ import App2 from './src/containers/sampleContainer_2'
 import { App } from './App'
 
 const logger = createLogger()
-//const rootReducer = combineReducers({counter, todoer})
-const pictureReducer = combineReducers({ picture })
-const store = createStore(pictureReducer, applyMiddleware(thunk))
+const rootReducer = combineReducers({picture})
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export class MainApp extends React.Component {
   render(){
