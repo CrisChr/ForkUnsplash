@@ -63,3 +63,4 @@ buck-out/
 
 # dist folder
 dist/
+*.history/
